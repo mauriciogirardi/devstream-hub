@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import { PATH_HOME } from '@/constants/paths'
 
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 
 export async function Actions() {
   const user = await currentUser()

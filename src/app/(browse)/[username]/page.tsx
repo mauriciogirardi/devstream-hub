@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 
-import { FollowActions } from '@/components/follow-actions'
+import { ButtonsActions } from '@/components/buttons-actions'
 import { isFollowingUser } from '@/lib/follow-service'
 import { getUserByUsername } from '@/lib/user-service'
 
@@ -24,7 +24,7 @@ export default async function UsernamePage({ params }: UsernamePageProps) {
       <h1>username: {user.username}</h1>
       <h1>user id: {user.id}</h1>
       <h1>isFollowing: {`${isFollowing}`}</h1>
-      <FollowActions isFollowing={isFollowing} userId={user.id} />
+      <ButtonsActions isFollowing={isFollowing} userId={user.id} />
     </div>
   )
 }

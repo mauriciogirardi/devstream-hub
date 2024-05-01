@@ -13,7 +13,7 @@ type FollowActionsProps = {
   userId: string
 }
 
-export function FollowActions({ isFollowing, userId }: FollowActionsProps) {
+export function ButtonsActions({ isFollowing, userId }: FollowActionsProps) {
   const [isPending, startTransition] = useTransition()
 
   const handleFollow = () => {
@@ -45,13 +45,17 @@ export function FollowActions({ isFollowing, userId }: FollowActionsProps) {
   }
 
   return (
-    <Button
-      variant="primary"
-      onClick={handleFollowOrUnfollow}
-      disabled={isPending}
-    >
-      {isFollowing ? 'Unfollow' : 'Follow'}
-      {isPending && <Loader2 className="ml-2 size-5 animate-spin" />}
-    </Button>
+    <>
+      <Button
+        variant="primary"
+        onClick={handleFollowOrUnfollow}
+        disabled={isPending}
+      >
+        {isFollowing ? 'Unfollow' : 'Follow'}
+        {isPending && <Loader2 className="ml-2 size-5 animate-spin" />}
+      </Button>
+
+      <Button>Block user</Button>
+    </>
   )
 }

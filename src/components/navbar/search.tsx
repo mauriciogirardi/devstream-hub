@@ -8,7 +8,7 @@ import { FormEvent, useState } from 'react'
 
 import { PATH_SEARCH } from '@/constants/paths'
 
-import { Input } from './ui/input'
+import { Input } from '../ui/input'
 
 export function Search() {
   const router = useRouter()

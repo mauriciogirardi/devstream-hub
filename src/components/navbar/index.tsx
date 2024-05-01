@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 import { PATH_HOME } from '@/constants/paths'
 
+import { Logo } from '../logo'
 import { Actions } from './actions'
-import { Logo } from './logo'
 import { Search } from './search'
 
 export function Navbar() {
