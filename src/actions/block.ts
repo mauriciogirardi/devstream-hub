@@ -1,3 +1,5 @@
+'use server'
+
 import { revalidatePath } from 'next/cache'
 
 import { PATH_HOME } from '@/constants/paths'
