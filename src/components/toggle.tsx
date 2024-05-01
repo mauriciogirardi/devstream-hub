@@ -2,15 +2,23 @@
 
 import { ArrowLeftFromLine, ArrowRightFromLine } from 'lucide-react'
 
-import { useSidebar } from '@/store/use-sidebar'
+import { Hint } from './hint'
+import { Button } from './ui/button'
+import { Skeleton } from './ui/skeleton'
 
-import { Hint } from '../hint'
-import { Button } from '../ui/button'
-import { Skeleton } from '../ui/skeleton'
+type ToggleProps = {
+  collapsed: boolean
+  onCollapse: () => void
+  onExpand: () => void
+  text?: string
+}
 
-export function Toggle() {
-  const { collapsed, onCollapse, onExpand } = useSidebar((state) => state)
-
+export function Toggle({
+  collapsed,
+  onCollapse,
+  onExpand,
+  text = 'For you',
+}: ToggleProps) {
   const label = collapsed ? 'Expand' : 'Collapse'
 
   return (
@@ -32,8 +40,8 @@ export function Toggle() {
       )}
 
       {!collapsed && (
-        <div className="mb-2 flex w-full items-center p-3 pl-6">
-          <p className="font-semibold text-primary">For you</p>
+        <div className="mb-2 hidden w-full items-center p-3 pl-6 lg:flex">
+          <p className="font-semibold text-primary">{text}</p>
           <Hint label={label} side="right" asChild>
             <Button
               className="ml-auto h-auto p-2"

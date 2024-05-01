@@ -1,9 +1,10 @@
 import { getFollowedUsers } from '@/lib/follow-service'
 import { getRecommended } from '@/lib/recommended-service'
 
+import { ToggleSkeleton } from '../toggle'
 import { Following, FollowingSkeleton } from './following'
 import { Recommended, RecommendedSkeleton } from './recommended'
-import { Toggle, ToggleSkeleton } from './toggle'
+import { ToggleSidebar } from './toggle-sidebar'
 import { Wrapper } from './wrapper'
 
 export async function Sidebar() {
@@ -12,7 +13,7 @@ export async function Sidebar() {
 
   return (
     <Wrapper>
-      <Toggle />
+      <ToggleSidebar />
 
       <div className="space-y-4 pt-4 lg:pt-0">
         <Following data={following} />

@@ -6,9 +6,9 @@ import { useIsClient } from 'usehooks-ts'
 import { cn } from '@/lib/utils'
 import { useSidebar } from '@/store/use-sidebar'
 
+import { ToggleSkeleton } from '../toggle'
 import { FollowingSkeleton } from './following'
 import { RecommendedSkeleton } from './recommended'
-import { ToggleSkeleton } from './toggle'
 
 type WrapperProps = {
   children: ReactNode

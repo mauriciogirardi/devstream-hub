@@ -11,7 +11,7 @@ export async function Actions() {
   const user = await currentUser()
 
   return (
-    <div className="flex items-center justify-end gap-x-2">
+    <>
       {!user && (
         <SignInButton>
           <Button size="sm" variant="primary" className="ml-8 lg:ml-0">
@@ -20,7 +20,7 @@ export async function Actions() {
         </SignInButton>
       )}
 
-      {!!user && (
+      {user && (
         <div className="flex items-center gap-x-4">
           <Button
             size="sm"
@@ -37,6 +37,6 @@ export async function Actions() {
           <UserButton afterSignOutUrl={PATH_HOME} />
         </div>
       )}
-    </div>
+    </>
   )
 }

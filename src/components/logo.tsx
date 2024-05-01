@@ -12,9 +12,15 @@ type Logo = {
   size?: number
   className?: string
   isNav?: boolean
+  description?: string
 }
 
-export function Logo({ size = 80, className, isNav = false }: Logo) {
+export function Logo({
+  size = 80,
+  className,
+  isNav = false,
+  description = "Let's talk",
+}: Logo) {
   return (
     <div className={cn('flex flex-col items-center gap-y-4', className)}>
       <div className="rounded-full bg-white p-1">
@@ -30,7 +36,7 @@ export function Logo({ size = 80, className, isNav = false }: Logo) {
         <p className={cn('text-xl font-semibold', isNav && 'text-lg')}>
           Talkdev
         </p>
-        <p className="text-sm text-muted-foreground">Let&apos;s talk</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
     </div>
   )
