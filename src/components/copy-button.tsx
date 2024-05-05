@@ -3,6 +3,8 @@
 import { CheckCheck, Copy } from 'lucide-react'
 import { useState } from 'react'
 
+import { cn } from '@/lib/utils'
+
 import { Button } from './ui/button'
 
 type CopyButtonProps = {
@@ -32,7 +34,7 @@ export function CopyButton({ value }: CopyButtonProps) {
       variant="ghost"
       disabled={!value || isCopied}
     >
-      <Icon className="size-4" />
+      <Icon className={cn('size-4', isCopied && 'text-emerald-300')} />
     </Button>
   )
 }
