@@ -5,6 +5,22 @@ export async function getUserByUsername({ username }: { username: string }) {
     where: {
       username,
     },
+    include: {
+      stream: true,
+    },
+  })
+
+  return user
+}
+
+export async function getUserById({ userId }: { userId: string }) {
+  const user = await db.user.findUnique({
+    where: {
+      id: userId,
+    },
+    include: {
+      stream: true,
+    },
   })
 
   return user
