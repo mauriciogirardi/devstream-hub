@@ -21,7 +21,7 @@ export function FullscreenControl({
       <Hint label={label} asChild>
         <button
           onClick={onToggle}
-          className="rounded-lg bg-white/10 p-1.5 dark:text-white"
+          className="rounded-lg bg-zinc-600 p-1.5 dark:text-white"
         >
           <Icon className="size-5" />
         </button>

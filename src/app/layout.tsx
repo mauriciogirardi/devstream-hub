@@ -12,8 +12,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
   title: {
-    default: 'Talkdev',
-    template: '%s | Talkdev',
+    default: 'DevStream Hub',
+    template: '%s | DevStream Hub',
   },
   description:
     'This application is a clone of Twitch, made with didactic purposes.',

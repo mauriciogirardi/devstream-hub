@@ -34,7 +34,7 @@ export function Logo({
         )}
       >
         <p className={cn('text-xl font-semibold', isNav && 'text-lg')}>
-          Talkdev
+          DevStream Hub
         </p>
         <p className="text-sm text-muted-foreground">{description}</p>
       </div>

@@ -27,7 +27,7 @@ export function Toggle({
         <div className="mb-4 hidden w-full items-center justify-center pt-4 lg:flex">
           <Hint label={label} asChild side="right">
             <Button
-              className="h-auto p-2"
+              className="h-auto bg-transparent p-2 hover:bg-white/10 hover:text-primary"
               variant="ghost"
               onClick={onExpand}
               aria-label="Expand sidebar"
@@ -44,7 +44,7 @@ export function Toggle({
           <p className="font-semibold text-primary">{text}</p>
           <Hint label={label} side="right" asChild>
             <Button
-              className="ml-auto h-auto p-2"
+              className="ml-auto h-auto bg-transparent p-2 hover:bg-white/10 hover:text-primary"
               variant="ghost"
               onClick={onCollapse}
               aria-label="Collapse sidebar"

@@ -2,7 +2,7 @@
   <img src=".github/imgs/duck.svg" style="width:100px;"/>
 </div>
 
-## About the Talkdev
+## About the DevStream Hub
 
 This project aims to create a clone of Twitch, a popular live streaming platform, using the Next.js framework in its version 14.
 

@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "deduped",
     "livekit",
     "LIVEKIT",
     "nextjs",
@@ -8,6 +9,8 @@
     "Talkdev",
     "unfollow",
     "Unfollow",
-    "unfollowed"
+    "unfollowed",
+    "usehooks",
+    "zustand"
   ]
 }
