@@ -36,12 +36,12 @@ export function Video({ hostIdentity, hostName }: VideoProps) {
     content = <LiveVideo participant={participant} />
   }
 
-  return <div className="group relative aspect-video">{content}</div>
+  return <div className="group relative aspect-video border-b">{content}</div>
 }
 
 export function VideoSkeleton() {
   return (
-    <div className="aspect-video border-x border-background">
+    <div className="aspect-video border-b">
       <Skeleton className="h-full w-full rounded-none" />
     </div>
   )
