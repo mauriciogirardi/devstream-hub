@@ -4,6 +4,7 @@ import { Pencil } from 'lucide-react'
 import Image from 'next/image'
 
 import { Separator } from '../ui/separator'
+import { Skeleton } from '../ui/skeleton'
 import { InfoModal } from './info-modal'
 
 type InfoCardProps = {
@@ -55,9 +56,46 @@ export function InfoCard({
             <h3 className="mb-2 text-sm text-muted-foreground">Thumbnail</h3>
             {thumbnailUrl && (
               <div className="relative aspect-video w-[200px] overflow-hidden rounded-md border border-white/10">
-                <Image src={thumbnailUrl} alt={name} fill />
+                <Image
+                  src={thumbnailUrl}
+                  alt={name}
+                  fill
+                  className="object-cover"
+                />
               </div>
             )}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function InfoCardSkeleton() {
+  return (
+    <div className="mt-2 px-4">
+      <div className="rounded-lg bg-[#22252e]">
+        <div className="flex items-center gap-x-2.5 p-4">
+          <Skeleton className="size-10 rounded-md" />
+
+          <div>
+            <Skeleton className="mb-1 h-5 w-52" />
+            <Skeleton className="h-4 w-40" />
+          </div>
+          <Skeleton className="ml-auto h-5 w-16" />
+        </div>
+
+        <Separator />
+
+        <div className="space-y-4 p-4 lg:p-6">
+          <div>
+            <h3 className="mb-2 text-sm text-muted-foreground">Name</h3>
+            <Skeleton className="h-5 w-32" />
+          </div>
+
+          <div>
+            <h3 className="mb-2 text-sm text-muted-foreground">Thumbnail</h3>
+            <Skeleton className="h-[100px] w-[200px]" />
           </div>
         </div>
       </div>

@@ -11,7 +11,11 @@
     "unfollow",
     "Unfollow",
     "unfollowed",
+    "uploadthing",
+    "Uploadthing",
+    "UPLOADTHING",
     "usehooks",
+    "utfs",
     "zustand"
   ]
 }

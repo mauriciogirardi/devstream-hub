@@ -11,7 +11,7 @@ import { userChatSidebar } from '@/store/user-chat-sidebar'
 import { Chat, ChatSkeleton } from '../chat'
 import { ChatToggle } from '../chat/chat-toggle'
 import { Header, HeaderSkeleton } from './header'
-import { InfoCard } from './info-card'
+import { InfoCard, InfoCardSkeleton } from './info-card'
 import { Video, VideoSkeleton } from './video'
 
 type StreamPlayerProps = {
@@ -80,10 +80,11 @@ export function StreamPlayer({ isFollowing, stream, user }: StreamPlayerProps) {
 
 export function StreamPlayerSkeleton() {
   return (
-    <div className="grid h-full grid-cols-1 lg:grid-cols-3 lg:gap-y-0 xl:grid-cols-3 2xl:grid-cols-6">
+    <div className="grid h-[calc(100vh_-_80px)] grid-cols-1 lg:grid-cols-3 lg:gap-y-0 xl:grid-cols-3 2xl:grid-cols-6">
       <div className="hidden-scrollbar col-span-1 space-y-4 pb-10 lg:col-span-2 lg:overflow-y-auto xl:col-span-2 2xl:col-span-5">
         <VideoSkeleton />
         <HeaderSkeleton />
+        <InfoCardSkeleton />
       </div>
 
       <div className="col-span-1">
