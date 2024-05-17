@@ -10,12 +10,13 @@ import { userChatSidebar } from '@/store/user-chat-sidebar'
 
 import { Chat, ChatSkeleton } from '../chat'
 import { ChatToggle } from '../chat/chat-toggle'
+import { AboutCard, AboutCardSkeleton } from './about-card'
 import { Header, HeaderSkeleton } from './header'
 import { InfoCard, InfoCardSkeleton } from './info-card'
 import { Video, VideoSkeleton } from './video'
 
 type StreamPlayerProps = {
-  user: User
+  user: User & { stream: Stream | null; _count: { followedBy: number } }
   stream: Stream
   isFollowing: boolean
 }
@@ -60,6 +61,13 @@ export function StreamPlayer({ isFollowing, stream, user }: StreamPlayerProps) {
             name={stream.name}
             thumbnailUrl={stream.thumbnailUrl}
           />
+          <AboutCard
+            hostIdentity={user.id}
+            hostName={user.username}
+            bio={user.bio}
+            followedByCount={user._count.followedBy}
+            viewerIdentity={identity}
+          />
         </div>
 
         <div className={cn('col-span-1', collapsed && 'hidden')}>
@@ -85,6 +93,7 @@ export function StreamPlayerSkeleton() {
         <VideoSkeleton />
         <HeaderSkeleton />
         <InfoCardSkeleton />
+        <AboutCardSkeleton />
       </div>
 
       <div className="col-span-1">

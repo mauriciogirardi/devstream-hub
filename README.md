@@ -98,8 +98,58 @@ This project aims to create a comprehensive live streaming experience, combining
 27. **Grouped Routes & Layouts**
     Organization of application routes and layouts in a grouped manner to facilitate maintenance and scalability of the project.
 
-28. **MySQL**
-    Use of MySQL as the primary database to store and manage platform data.
+28. **Postgress**
+    Use of Postgress as the primary database to store and manage platform data.
 
 29. **Deployment**
     Configuration of deployment processes to ensure availability and scalability of the application in different production environments.
+
+#### Clone this project
+
+Some config
+
+```bash
+  git clone https://github.com/mauriciogirardi/devstream-hub.git
+```
+
+1 - Create a file **.env** and copy envs from **.env.example**
+
+2 - Cleck, create a count [site](https:www.clerk.com) ,once registered manages the environment and add .env
+
+- CLERK_WEBHOOK_SECRET=
+- NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+- CLERK_SECRET_KEY=
+
+3 - LiveKit, create a count [site](https:www.https://cloud.livekit.io/) ,once registered manages the environment and add .env
+
+- NEXT_PUBLIC_LIVEKIT_API_URL=
+- LIVEKIT_API_URL=
+- LIVEKIT_API_KEY=
+- LIVEKIT_API_SECRET=
+
+3 - Uploadthing, create a count [site](https://uploadthing.com/) ,once registered manages the environment and add .env
+
+- UPLOADTHING_SECRET=
+- UPLOADTHING_APP_ID=
+
+4 - Supabase, create a count [site](https://supabase.com/) ,once registered manages the environment and add .env
+
+- NEXT_PUBLIC_SUPABASE_URL=
+- NEXT_PUBLIC_SUPABASE_ANON_KEY=
+- DATABASE_URL=
+
+```bash
+
+  # install dependence
+  pnpm i
+
+  # Run the migrations
+  pnpm prisma migrate dev
+
+  # Run project
+  pnpm run dev
+
+  # Run ngrok
+  # I’m using ngrok in dev environment to upload the url to cleck.
+  ngrok http --domain=your-domain-here 3000
+```
