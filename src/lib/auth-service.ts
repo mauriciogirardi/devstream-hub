@@ -1,6 +1,9 @@
 'use server'
 
 import { currentUser } from '@clerk/nextjs/server'
+import { redirect } from 'next/navigation'
+
+import { PATH_HOME } from '@/constants/paths'
 
 import { db } from './db'
 
@@ -8,7 +11,7 @@ export async function getSelf() {
   const self = await currentUser()
 
   if (!self || !self.username) {
-    throw new Error('Unauthorized!')
+    redirect(PATH_HOME)
   }
 
   const user = await db.user.findUnique({
@@ -26,7 +29,7 @@ export async function getSelfByUsername(username: string) {
   const self = await currentUser()
 
   if (!self || !self.username) {
-    throw new Error('Unauthorized!')
+    redirect(PATH_HOME)
   }
 
   const user = await db.user.findUnique({
