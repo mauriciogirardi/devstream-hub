@@ -1,7 +1,13 @@
+import { Suspense } from 'react'
+
+import { Results, ResultsSkeleton } from '@/components/results-home'
+
 export default function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <section className="mx-auto h-full max-w-screen-2xl p-8">
+      <Suspense fallback={<ResultsSkeleton />}>
+        <Results />
+      </Suspense>
+    </section>
   )
 }
