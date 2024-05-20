@@ -3,7 +3,6 @@
 import { User } from '@prisma/client'
 import Link from 'next/link'
 
-import { LiveBadge } from './live-badge'
 import { Thumbnail, ThumbnailSkeleton } from './thumbnail'
 import { Skeleton } from './ui/skeleton'
 import { UserAvatar, UserAvatarSkeleton } from './user-avatar'
@@ -27,12 +26,6 @@ export function ResultCard({ data }: ResultCardProps) {
           isLive={data.isLive}
           username={data.user.username}
         />
-
-        {data.isLive && (
-          <div className="absolute left-2 top-2 transition-transform group-hover:-translate-y-2 group-hover:translate-x-2">
-            <LiveBadge />
-          </div>
-        )}
 
         <div className="flex gap-x-3">
           <UserAvatar
