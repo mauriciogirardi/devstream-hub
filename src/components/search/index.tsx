@@ -6,9 +6,9 @@ import { useRouter } from 'next/navigation'
 import qs from 'query-string'
 import { FormEvent, useState } from 'react'
 
-import { PATH_SEARCH } from '@/constants/paths'
+import { PATH_HOME, PATH_SEARCH } from '@/constants/paths'
 
-import { Input } from './ui/input'
+import { Input } from '../ui/input'
 
 export function Search() {
   const router = useRouter()
@@ -16,7 +16,9 @@ export function Search() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (!value.trim()) return
+    if (!value.trim()) {
+      return router.push(PATH_HOME)
+    }
 
     const url = qs.stringifyUrl(
       {
