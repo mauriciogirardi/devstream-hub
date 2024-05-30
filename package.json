@@ -1,12 +1,17 @@
 {
-  "name": "clone-twitch",
+  "name": "stream-dev-hub",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
+  },
+  "author": {
+    "name": "Mauricio Girardi",
+    "email": "devmauriciogirardi@gmail.com"
   },
   "dependencies": {
     "@clerk/nextjs": "5.0.2",
