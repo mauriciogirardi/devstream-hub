@@ -24,6 +24,7 @@
     "@radix-ui/react-switch": "1.0.3",
     "@radix-ui/react-tooltip": "1.0.7",
     "@t3-oss/env-nextjs": "0.10.1",
+    "@tanstack/react-table": "8.17.3",
     "@uploadthing/react": "6.5.4",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",

@@ -3,10 +3,10 @@
 import { RoomServiceClient } from 'livekit-server-sdk'
 import { revalidatePath } from 'next/cache'
 
-import { PATH_HOME } from '@/constants/paths'
 import { env } from '@/env'
 import { getSelf } from '@/lib/auth-service'
 import { blockUser, unblockUser } from '@/lib/block-service'
+import { db } from '@/lib/db'
 
 const roomService = new RoomServiceClient(
   env.LIVEKIT_API_URL,
@@ -37,13 +37,23 @@ export async function onBlock(userId: string) {
 }
 
 export async function onUnblock(userId: string) {
+  const self = await getSelf()
   const unblockedUser = await unblockUser({ userId })
-
-  revalidatePath(PATH_HOME)
-
-  if (unblockedUser) {
-    revalidatePath(`/${unblockedUser.blocked.username}`)
-  }
-
+  revalidatePath(`/u/${self.username}/community`)
   return unblockedUser
+}
+
+export async function getBlockedUsers() {
+  const self = await getSelf()
+
+  const blockedUsers = await db.block.findMany({
+    where: {
+      blockedId: self.id,
+    },
+    include: {
+      blocked: true,
+    },
+  })
+
+  return blockedUsers
 }
