@@ -52,7 +52,7 @@ export async function createIngress(ingressType: IngressInput) {
 
   await resetIngress(self.id)
 
-  const options: CreateIngressOptions = {
+  const options: CreateIngressOptions & { enableTranscoding?: boolean } = {
     name: self.username,
     roomName: self.id,
     participantName: self.username,
@@ -68,7 +68,7 @@ export async function createIngress(ingressType: IngressInput) {
         case: 'preset',
         value: IngressVideoEncodingPreset.H264_1080P_30FPS_3_LAYERS,
       },
-    } as IngressVideoOptions
+    } as unknown as IngressVideoOptions
 
     options.audio = {
       source: TrackSource.SCREEN_SHARE_AUDIO,
@@ -76,7 +76,7 @@ export async function createIngress(ingressType: IngressInput) {
         case: 'preset',
         value: IngressAudioEncodingPreset.OPUS_MONO_64KBS,
       },
-    } as IngressAudioOptions
+    } as unknown as IngressAudioOptions
   }
 
   const ingress = await ingressClient.createIngress(ingressType, options)
